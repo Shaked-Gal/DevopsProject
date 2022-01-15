@@ -9,7 +9,7 @@
 <jsp:useBean id="locales" scope="application"
     class="mypkg.MyLocales"/>
 
-<form name="localeForm" action="index.jsp" method="post">
+<form name="localeForm" action="date.jsp" method="post">
 <c:set var="selectedLocaleString" value="${param.locale}" />
 <c:set var="selectedFlag"
      value="${!empty selectedLocaleString}" />
