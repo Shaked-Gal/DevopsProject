@@ -12,7 +12,7 @@
   <tr>
     <td width="100%">
      <p align="center"><b>Convert Celsius to Fahrenheit Jsp</b></p>
-     <form method="POST" action="Celsius-to-Fahrenheit.jsp">
+     <form method="POST" action="CtoF.jsp">
        
         <p align="center"><b>Enter Temprature in Celsius:</b>
 	<input type="text" name="cel" size="20">
