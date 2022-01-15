@@ -1,48 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core
-"prefix="c" %>
-<%@ taglib uri="/functions" prefix="f" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head><title>Localized Dates</title></head>
-<body bgcolor="white">
-<jsp:useBean id="locales" scope="application"
-    class="mypkg.MyLocales"/>
-<form name="localeForm" action="date.jsp" method="post">
-<c:set var="selectedLocaleString" value="${param.locale}" />
-<c:set var="selectedFlag"
-     value="${!empty selectedLocaleString}" />
-<b>Locale:</b>
-<select name=locale>
-<c:forEach var="localeString" items="${locales.localeNames}" >
-<c:choose>
-    <c:when test="${selectedFlag}">
-        <c:choose>
-            <c:when
-                 test="${f:equals(selectedLocaleString, localeString)}" >
-                <option selected>${localeString}</option>
-            </c:when>
-            <c:otherwise>
-                <option>${localeString}</option>
-            </c:otherwise>
-        </c:choose>
-    </c:when>
-    <c:otherwise>
-        <option>${localeString}</option>
-    </c:otherwise>
-</c:choose>
-</c:forEach>
-</select>
-<input type="submit" name="Submit" value="Get Date">
-</form>
+<head>
+<title>Convert Celsius to Fahrenheit Jsp</title>
+</head>
+<body>
+<table border="1" cellpadding="0"
+   cellspacing="0" width="35%" align="center">
 
-<c:if test="${selectedFlag}" >
-    <jsp:setProperty name="locales"
-        property="selectedLocaleString"
-        value="${selectedLocaleString}" />
-    <jsp:useBean id="date" class="mypkg.MyDate"/>
-    <jsp:setProperty name="date" property="locale"
-        value="${locales.selectedLocale}"/>
-    <b>Date: </b>${date.date}</c:if>
+  <tr>
+    <td width="100%">
+     <p align="center"><b>Convert Celsius to Fahrenheit Jsp</b></p>
+     <form method="POST" action="Celsius-to-Fahrenheit.jsp">
+       
+        <p align="center"><b>Enter Temprature in Celsius:</b>
+	<input type="text" name="cel" size="20">
+        <input type="submit" value="Convert" name="B1"></p>
+        </form>
+      <%
+		String str=request.getParameter("cel");
+			if(str == null || str.equals("")){ 
+			   out.println("<b>Fahrenheit:</b>");
+			}
+			else{
+			 float c=Float.parseFloat(str);
+			float f = 32 + 9*c/5;
+			out.println("<b>Fahrenheit:</b>"+f);
+			}%>
+	  <p>&nbsp;</p></td></tr>
+  </table>
 </body>
 </html>
